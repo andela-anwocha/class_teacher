@@ -1,4 +1,4 @@
-class TeachersController < ApplicationController
+class TeachersController < ApplicationController  
   def home
   end
 

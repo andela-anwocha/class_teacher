@@ -1,0 +1,10 @@
+<% if @students.any? %>
+  <% @students.each do |student| %>
+    <h3>Name:</h3><%= student.name %>
+    <h3>Age:</h3><%= student.age %>
+    <hr/>
+  <% end %>
+<% else %>
+  <h2>No Student Added Yet</h2>
+<% end %>
+<br/>

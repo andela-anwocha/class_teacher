@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_action :set_teacher_class
 
   def index
-    @students = Student.all
+    @students = @teacher_class.students
   end
 
   def new
