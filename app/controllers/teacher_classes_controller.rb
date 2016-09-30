@@ -14,11 +14,11 @@ class TeacherClassesController < ApplicationController
   end
 
   def create
-    @teacher_class = TeacherClass.new(class_params.merge(teacher_id: @teacher.id))
+    @teacher_class = TeacherClass.new(class_params)
 
     if @teacher_class.save
       redirect_to teacher_class_path(@teacher_class),
-       notice: "Class Created!, You can now add Students"
+                  notice: "Class Created!, You can now add Students"
     else
       flash[:errors] = @teacher_class.errors
       render :new

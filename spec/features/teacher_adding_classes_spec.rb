@@ -5,10 +5,7 @@ feature "Teachers Adding Classes" do
     before do
       @teacher = create(:teacher)
       sign_in_teacher(@teacher.email, "password")
-
-      visit new_teacher_class_path
-      fill_in(:name, with: "Primary 1")
-      click_on("Add Class")
+      fill_form_for_class(name: "Primary 1")
     end
 
     scenario "creates the teacher_class" do
@@ -24,11 +21,9 @@ feature "Teachers Adding Classes" do
     scenario "displays invalid class name" do
       @teacher = create(:teacher)
       sign_in_teacher(@teacher.email, "password")
-      visit new_teacher_class_path
+      fill_form_for_class(name: "")
 
-      fill_in(:name, with: "")
-      click_on("Add Class")
-      expect(page).to have_content("Invalid Name")    
+      expect(page).to have_content("Invalid Name")
     end
   end
 end

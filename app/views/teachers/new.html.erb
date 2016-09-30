@@ -1,16 +1,19 @@
+<h1> SignUp as a New Teacher </h1>
 <% if flash[:errors] %>
   <h2>Errors</h2>
 <% end %>
 
 <%= form_for(@teacher) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, id: :name %>
+  <%= f.text_field :name, id: :name %><br/>
 
   <%= f.label :email %>
-  <%= f.email_field :email, id: :email %>
+  <%= f.email_field :email, id: :email %><br/>
 
   <%= f.label :password %>
-  <%= f.password_field :password, id: :password %>
+  <%= f.password_field :password, id: :password %><br/>
 
   <%= f.submit "Sign Up" %>
-<% end %>
+<% end %><br/>
+
+<%= link_to "Sign In", signin_path %>

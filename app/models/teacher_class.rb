@@ -1,4 +1,6 @@
 class TeacherClass < ActiveRecord::Base
-  validates_presence_of :name
+  has_many :students, dependent: :destroy
   belongs_to :teacher
+
+  validates_presence_of :name
 end

@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   before_action :set_teacher_class
 
   def index
-    @students = Student.all
+    @students = @teacher_class.students
   end
 
   def new
@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       redirect_to teacher_class_students_path(@teacher_class),
-        notice: "Student Created!"
+                  notice: "Student Created!"
     else
       flash[:errors] = @student.errors
       render :new

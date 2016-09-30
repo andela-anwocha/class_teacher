@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Teacher Signin" do
-  before{ @teacher = create(:teacher) }
+  before { @teacher = create(:teacher) }
 
   context "when correct credentials are provided" do
     scenario "displays Welcome message" do

@@ -1,13 +1,17 @@
+<h1>New Student For <%= @teacher_class.name %></h1>
+
 <% if flash[:errors] %>
   <h1>Errors</h1>
 <% end %>
 
 <%= form_for([@teacher_class, @student]) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, id: :name %>
+  <%= f.text_field :name, id: :name %><br/>
 
   <%= f.label :age %>
-  <%= f.number_field :age, id: :age %>  
+  <%= f.number_field :age, id: :age %><br/>
 
   <%= f.submit "Add Student" %>
 <% end %>
+<br/>
+<%= link_to "Back", :back %>

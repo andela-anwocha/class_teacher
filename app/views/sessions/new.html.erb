@@ -6,10 +6,11 @@
 
 <%= form_tag "/sessions/create" do %>
   <%= label_tag :email %>
-  <%= email_field_tag :email %>
+  <%= email_field_tag :email %><br/>
 
   <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= password_field_tag :password %><br/>
 
   <%= submit_tag "Sign In" %>
-<% end %>
+<% end %><br/>
+<%= link_to "Sign Up", signup_path %>
