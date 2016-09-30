@@ -1,0 +1,10 @@
+<% if flash[:errors] %>
+  <h2>Invalid Name</h2>
+<% end %>
+
+<%= form_for(@teacher_class) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, id: :name %>
+
+  <%= f.submit "Add Class" %>
+<% end %>

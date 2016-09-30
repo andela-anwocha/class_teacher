@@ -6,5 +6,10 @@ Rails.application.routes.draw do
 
   get "/signin", to: "sessions#new"
   post "/sessions/create", to: "sessions#create"
+
+  resources :teacher_classes do
+    resources :students
+  end
+
   get "/signup", to: "teachers#new"
 end

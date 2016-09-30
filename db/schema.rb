@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930105125) do
+ActiveRecord::Schema.define(version: 20160930123526) do
+
+  create_table "teacher_classes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "teacher_id"
+  end
+
+  add_index "teacher_classes", ["teacher_id"], name: "index_teacher_classes_on_teacher_id"
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
