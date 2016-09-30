@@ -1,0 +1,15 @@
+<h1>Showing Students For <%= @teacher_class.name %></h1>
+
+<% if @students.any? %>
+  <% @students.each do |student| %>
+    <h3>Name:</h3><%= student.name %>
+    <h3>Age:</h3><%= student.age %>
+    <hr/>
+  <% end %>
+<% else %>
+  <h2>No Student Added Yet</h2>
+<% end %>
+
+<br/>
+
+<%= link_to "Add Student",  new_teacher_class_student_path(@teacher_class) %>
