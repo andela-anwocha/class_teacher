@@ -17,6 +17,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'bcrypt'
+  gem 'pry-rails'
 end
 
 group :development do
