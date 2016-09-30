@@ -46,8 +46,9 @@ describe TeacherClassesController, type: :controller do
       end
 
       it "creates a new teacher_class" do
-        expect(TeacherClass.count).to eq(1)
+        expect(@teacher.teacher_classes.count).to eq(1)
       end
+
 
       it "redirects to the teacher_class_path" do
         expect(response).to redirect_to teacher_class_path(id: Teacher.last.id)

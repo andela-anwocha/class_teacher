@@ -1,0 +1,13 @@
+<% if flash[:errors] %>
+  <h1>Errors</h1>
+<% end %>
+
+<%= form_for([@teacher_class, @student]) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, id: :name %>
+
+  <%= f.label :age %>
+  <%= f.number_field :age, id: :age %>  
+
+  <%= f.submit "Add Student" %>
+<% end %>

@@ -14,7 +14,7 @@ class TeacherClassesController < ApplicationController
   end
 
   def create
-    @teacher_class = TeacherClass.new(class_params)
+    @teacher_class = TeacherClass.new(class_params.merge(teacher_id: @teacher.id))
 
     if @teacher_class.save
       redirect_to teacher_class_path(@teacher_class),
@@ -32,6 +32,7 @@ class TeacherClassesController < ApplicationController
   end
 
   def class_params
-    params.require(:teacher_class).permit(:name)
+    class_params = params.require(:teacher_class).permit(:name)
+    class_params.merge(teacher_id: @teacher.id)
   end
 end
