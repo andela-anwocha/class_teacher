@@ -1,17 +1,16 @@
 require "rails_helper"
 
 feature "Adding Students To Class" do
+  before do
+    @teacher = create(:teacher)
+    sign_in_teacher(@teacher.email, "password")
+    @teacher_class = create(:teacher_class, teacher_id: @teacher.id)
+  end
+
   context "when user provides valid data" do
     before do
-      @teacher = create(:teacher)
-      sign_in_teacher(@teacher.email, "password")
-      @teacher_class = create(:teacher_class, teacher_id: @teacher.id)
-      visit new_teacher_class_student_path(@teacher_class)
-
-      fill_in(:name, with: "Name")
-      fill_in(:age, with: 10)
-
-      click_on("Add Student")
+      params = { name: "Name", age: 10 }
+      fill_form_for_adding_students(@teacher_class, params)
     end
 
     scenario "creates the student" do
@@ -21,15 +20,8 @@ feature "Adding Students To Class" do
 
   context "when user does not provide valid data" do
     before do
-      @teacher = create(:teacher)
-      sign_in_teacher(@teacher.email, "password")
-      @teacher_class = create(:teacher_class, teacher_id: @teacher.id)
-      visit new_teacher_class_student_path(@teacher_class)
-
-      fill_in(:name, with: "")
-      fill_in(:age, with: 10)
-
-      click_on("Add Student")
+      params = { name: "", age: 10 }
+      fill_form_for_adding_students(@teacher_class, params)
     end
 
     scenario "displays Errors" do

@@ -18,7 +18,7 @@ class TeacherClassesController < ApplicationController
 
     if @teacher_class.save
       redirect_to teacher_class_path(@teacher_class),
-       notice: "Class Created!, You can now add Students"
+                  notice: "Class Created!, You can now add Students"
     else
       flash[:errors] = @teacher_class.errors
       render :new

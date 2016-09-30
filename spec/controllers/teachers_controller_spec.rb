@@ -1,9 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe TeachersController, type: :controller do
-
   describe "GET #new" do
-    before{ get :new }
+    before { get :new }
 
     it "returns http success" do
       expect(response).to have_http_status(:success)
@@ -14,14 +13,13 @@ describe TeachersController, type: :controller do
     end
 
     it "renders the new template" do
-      get :new
       expect(response).to render_template(:new)
     end
   end
 
   describe "POST #create" do
     context "when valid params are provided" do
-      before{ post :create, { teacher: attributes_for(:teacher) } }
+      before { post :create, teacher: attributes_for(:teacher) }
 
       it "creates the teacher" do
         expect(Teacher.count).to eq(1)
@@ -37,7 +35,7 @@ describe TeachersController, type: :controller do
     end
 
     context "when valid params are not provided" do
-      before{ post :create, { teacher: attributes_for(:teacher, name: "") } }
+      before { post :create, teacher: attributes_for(:teacher, name: "") }
 
       it "does not create the teacher" do
         expect(Teacher.count).to_not eq(1)
